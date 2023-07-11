@@ -1,11 +1,33 @@
+import { useState } from 'react';
+import { ConfirmDialog } from './components/ConfirmDialog/ConfirmDialog';
+import { ButtonBlock } from './components/ButtonBlock/ButtonBlock';
 import { Root } from './styles.css';
 
-function App() {
+const App = () => {
+  const [open, setOpen] = useState(false);
+  const [defaultValue, setDefaultValue] = useState<string | undefined>(undefined);
+
+  const handleOpen = (value?: string) => {
+    setDefaultValue(value);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleSave = (value: string) => {
+    console.log(value);
+    setOpen(false);
+  };
 
   return (
     <Root>
+      <ButtonBlock title="Blank" handler={() => handleOpen()} />
+      <ButtonBlock title="Edit" handler={() => handleOpen('Hello!')} />
+      <ConfirmDialog open={open} onClose={handleClose} onSave={handleSave} defaultValue={defaultValue} />
     </Root>
-  )
-}
+  );
+};
 
-export default App
+export default App;
