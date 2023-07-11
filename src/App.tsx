@@ -1,4 +1,3 @@
-import './App.css';
 import { Root } from './styles.css';
 
 function App() {
