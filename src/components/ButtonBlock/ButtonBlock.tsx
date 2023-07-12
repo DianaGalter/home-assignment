@@ -4,13 +4,13 @@ import { Root } from './styles.css';
 
 type ButtonBlockProps = HTMLAttributes<HTMLDivElement> & {
     title: string;
-    handler: (event: React.PointerEvent<HTMLButtonElement>) => void;
+    onClick: (event: React.PointerEvent<HTMLButtonElement>) => void;
 };
 
-export const ButtonBlock = ({ title, handler }: ButtonBlockProps) => {
+export const ButtonBlock = ({ title, onClick }: ButtonBlockProps) => {
     return (
         <Root>
-            <Button onClick={handler} variant="contained">
+            <Button onClick={onClick} variant="contained">
                 {title}
             </Button>
         </Root>

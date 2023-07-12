@@ -12,7 +12,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ defaultValue = "",
     const [error, setError] = useState(false);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value);
+        event.target.value ?? setValue(event.target.value);
         setError(false);
     };
 
