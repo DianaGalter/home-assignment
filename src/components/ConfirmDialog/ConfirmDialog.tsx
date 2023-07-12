@@ -35,7 +35,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ defaultValue = "",
                 <TextField
                     autoFocus
                     autoComplete='off'
-                    label="Some text..."
+                    placeholder="Some text..."
                     fullWidth
                     variant="outlined"
                     value={value}
