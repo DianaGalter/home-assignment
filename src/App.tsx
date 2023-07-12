@@ -17,7 +17,7 @@ const App = () => {
   };
 
   const handleSave = (value: string) => {
-    console.log(value);
+    console.log(`Saved value is: ${value}`);
     setOpen(false);
   };
 
@@ -25,7 +25,7 @@ const App = () => {
     <Root>
       <ButtonBlock title="Blank" handler={() => handleOpen()} />
       <ButtonBlock title="Edit" handler={() => handleOpen('Hello!')} />
-      <ConfirmDialog open={open} onClose={handleClose} onSave={handleSave} defaultValue={defaultValue} />
+      {open && <ConfirmDialog open={open} onClose={handleClose} onSave={handleSave} defaultValue={defaultValue} />}
     </Root>
   );
 };
