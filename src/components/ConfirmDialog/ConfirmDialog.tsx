@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { Button, Dialog, DialogActions, DialogContent, TextField } from '@mui/material';
 
 type ConfirmDialogProps = {
-    open: boolean;
     defaultValue?: string;
     onClose: () => void;
     onSave: (value: string) => void;
 }
 
-export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ open, defaultValue = "", onClose, onSave }) => {
+export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ defaultValue = "", onClose, onSave }) => {
     const [value, setValue] = useState(defaultValue);
     const [error, setError] = useState(false);
 
@@ -31,7 +30,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ open, defaultValue
     };
 
     return (
-        <Dialog open={open} onClose={onClose}>
+        <Dialog open={true} onClose={onClose}>
             <DialogContent>
                 <TextField
                     autoFocus

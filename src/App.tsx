@@ -25,7 +25,8 @@ const App = () => {
     <Root>
       <ButtonBlock title="Blank" handler={() => handleOpen()} />
       <ButtonBlock title="Edit" handler={() => handleOpen('Hello!')} />
-      {open && <ConfirmDialog open={open} onClose={handleClose} onSave={handleSave} defaultValue={defaultValue} />}
+      {/** Check if opens, as on close the dialog should be destroyed  */}
+      {open && <ConfirmDialog onClose={handleClose} onSave={handleSave} defaultValue={defaultValue} />}
     </Root>
   );
 };
