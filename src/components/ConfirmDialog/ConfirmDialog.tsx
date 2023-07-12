@@ -8,8 +8,8 @@ type ConfirmDialogProps = {
     onSave: (value: string) => void;
 }
 
-export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ open, defaultValue, onClose, onSave }) => {
-    const [value, setValue] = useState(defaultValue || '');
+export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ open, defaultValue = "", onClose, onSave }) => {
+    const [value, setValue] = useState(defaultValue);
     const [error, setError] = useState(false);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,6 +36,8 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ open, defaultValue
             <DialogContent>
                 <TextField
                     autoFocus
+                    autoComplete='off'
+                    defaultValue={defaultValue}
                     label="Some text..."
                     fullWidth
                     variant="outlined"
