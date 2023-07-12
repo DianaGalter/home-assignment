@@ -7,21 +7,17 @@ type ConfirmDialogProps = {
     onSave: (value: string) => void;
 }
 
-export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ defaultValue = "", onClose, onSave }) => {
+export const ConfirmDialog = ({ defaultValue = "", onClose, onSave }: ConfirmDialogProps) => {
     const [value, setValue] = useState(defaultValue);
     const [error, setError] = useState(false);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        event.target.value ?? setValue(event.target.value);
+        setValue(event.target.value);
         setError(false);
     };
 
-    const onCancel = () => {
-        onClose();
-    };
-
     const handleSave = () => {
-        if (value.trim() === '') {
+        if (!value.trim()) {
             setError(true);
         } else {
             onSave(value);
@@ -45,7 +41,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ defaultValue = "",
                 />
             </DialogContent>
             <DialogActions>
-                <Button onClick={onCancel} variant="text">Cancel</Button>
+                <Button onClick={onClose} variant="text">Cancel</Button>
                 <Button onClick={handleSave} variant="text" disabled={error}>Save</Button>
             </DialogActions>
         </Dialog>
