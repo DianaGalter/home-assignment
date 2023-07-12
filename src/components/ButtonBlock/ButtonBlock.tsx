@@ -1,8 +1,7 @@
 import { Button } from '@mui/material';
-import { HTMLAttributes } from 'react';
 import { Root } from './styles.css';
 
-type ButtonBlockProps = HTMLAttributes<HTMLDivElement> & {
+type ButtonBlockProps = {
     title: string;
     onClick: (event: React.PointerEvent<HTMLButtonElement>) => void;
 };
