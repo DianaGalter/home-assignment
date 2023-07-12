@@ -19,7 +19,6 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ open, defaultValue
 
     const onCancel = () => {
         onClose();
-        setError(false);
     };
 
     const handleSave = () => {
@@ -48,7 +47,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ open, defaultValue
             </DialogContent>
             <DialogActions>
                 <Button onClick={onCancel} variant="text">Cancel</Button>
-                <Button onClick={handleSave} variant="text">Save</Button>
+                <Button onClick={handleSave} variant="text" disabled={error}>Save</Button>
             </DialogActions>
         </Dialog>
     );
